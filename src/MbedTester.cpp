@@ -38,6 +38,8 @@
 
 #define PHYSICAL_NC    ((MbedTester::PhysicalIndex)0xFF)
 
+using namespace mbed;
+
 static const uint8_t KEY[8] = {
     0x92, 0x9d, 0x9a, 0x9b,
     0x29, 0x35, 0xa2, 0x65
