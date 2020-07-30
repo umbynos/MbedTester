@@ -598,6 +598,7 @@ void MbedTester::set_control_pins_auto()
     _control_auto = true;
 }
 
+// aux shoud be SS
 void MbedTester::set_control_pins_manual(PinName clk, PinName mosi, PinName miso, PinName aux)
 {
     int index;
@@ -625,9 +626,10 @@ void MbedTester::set_control_pins_manual(PinName clk, PinName mosi, PinName miso
     }
     PhysicalIndex aux_index = index;
 
-    if (clk_index + 1 != mosi_index) {
-        error("MOSI pin index does not follow CLK as required");
-    }
+    // removed this condition (useless in our usecase)
+    // if (clk_index + 1 != mosi_index) {
+    //     error("MOSI pin index does not follow CLK as required");
+    // }
 
     if ((miso_index == clk_index) || (miso_index == mosi_index)) {
         error("MISO conflicts with a control channel");
