@@ -46,6 +46,16 @@ const PinList *restricted = pinmap_restricted_pins();
 MbedTester tester(form_factor, restricted);
 
 void setup() {
+  Serial.begin(9600);
+  delay(2000);
+
+  // Maually set control pins to comunicate with the FPGA via SPI (13, 11, 12, 10)
+  tester.set_control_pins_manual(SPI_SCK, SPI_MOSI, SPI_MISO, digitalPinToPinName(PIN_SPI_SS));
+
+  // Test if the connection with the FPGA is successfull
+  Serial.print("Version: ");
+  Serial.println(tester.version());
+
   // Reset the FPGA CI Test Shield to put it into a known state
   tester.reset();
 
