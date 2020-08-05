@@ -71,6 +71,7 @@ void setup() {
       tester.gpio_write(MbedTester::LogicalPinGPIO0, toggle, true);
       ThisThread::sleep_for(500);
       toggle = !toggle;
+      Serial.println(toggle);
   }
 }
 
