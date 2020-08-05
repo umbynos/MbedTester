@@ -438,6 +438,20 @@ bool operator== (const Port<N, PinMapType, FormFactorType, FunctionType> &port1,
  * all_peripherals or one_peripheral to choose test pins from
  * the default form factor.
  */
+
+extern const PinList *pinmap_ff_arduino_pins();
+extern const char *pinmap_ff_arduino_pin_to_string(PinName pin);
+
+const PinList *pinmap_ff_default_pins()
+{
+    return pinmap_ff_arduino_pins();
+}
+
+const char *pinmap_ff_default_pin_to_string(PinName pin)
+{
+    return pinmap_ff_arduino_pin_to_string(pin);
+}
+
 class DefaultFormFactor {
 public:
     static const PinList *pins()
